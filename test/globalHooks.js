@@ -9,7 +9,7 @@ afterEach(async function () {
         if (this.currentTest.state === 'failed') {
             await page.screenshot({
                 fullPage: true,
-                path: `screenshots/${Date.now()}.${this.currentTest.title}.png`
+                path: `testReports/screenshots/${Date.now()}.${this.currentTest.title}.png`
             });
         }
     } catch (err) {

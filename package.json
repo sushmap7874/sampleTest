@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout 90000 --file test/globalHooks.js --recursive test"
+    "test": "mocha --timeout 90000 --file test/globalHooks.js --recursive --reporter mocha-multi-reporters --reporter-options configFile=config.json test"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +14,8 @@
     "lodash": "^4.17.20",
     "mocha": "^8.1.3",
     "puppeteer": "^5.2.1"
+  },
+  "devDependencies": {
+    "mocha-multi-reporters": "^1.1.7"
   }
 }
