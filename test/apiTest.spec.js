@@ -10,6 +10,14 @@ describe.only('API test', function () {
             .expect(200, done);
     });
 
+    it('should call the get request for single user not found', function (done) {
+        request('https://reqres.in')
+            .get('/api/users/23')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(404, done);
+    });
+
     it('should call the get request and get list of resurces', function (done) {
         request('https://reqres.in')
             .get('/api/unknown')
