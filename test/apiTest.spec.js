@@ -10,6 +10,29 @@ describe.only('API test', function () {
             .expect(200, done);
     });
 
+    it('should call the get request and get list of resurces', function (done) {
+        request('https://reqres.in')
+            .get('/api/unknown')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, response) => {
+                console.log('res=======', response.body);
+                if (err) {
+                    console.log('error=====', err);
+                }
+                done();
+            });
+    });
+
+    it('should call the get request with not found response', function (done) {
+        request('https://reqres.in')
+            .get('/api/unknown/23')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(404, done);
+    });
+
     it('should call the post request and responds with json', function (done) {
         let user = {
             "name": "alisa",
@@ -110,5 +133,19 @@ describe.only('API test', function () {
             .send(user)
             .set('Accept', 'application/json')
             .expect(400, done);
+    });
+
+    it('should call the get request and for delayed response', function (done) {
+        request('https://reqres.in')
+            .get('/api/users?delay=3')
+            .set('Accept', 'application/json')
+            .expect(200)
+            .end((err, response) => {
+                console.log('res=======', response.body);
+                if (err) {
+                    console.log('error=====', err);
+                }
+                done();
+            });
     });
 });
