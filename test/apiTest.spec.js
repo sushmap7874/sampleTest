@@ -2,7 +2,7 @@ const request = require('supertest');
 const expect = require('chai').expect;
 const record = require('./record');
 
-describe.only('API test', function () {
+describe('API test', function () {
     const recorder = record('apiTestMock');
     beforeEach(recorder.before);
     afterEach(recorder.after);
