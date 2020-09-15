@@ -1,7 +1,7 @@
 const request = require('supertest');
 const nock = require('nock');
 
-describe.only('API test with mocked backend', function () {
+describe('API test with mocked backend', function () {
     it('should call the get request and responds with json', function (done) {
 
         const res = {

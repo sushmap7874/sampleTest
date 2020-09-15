@@ -1,7 +1,11 @@
 const request = require('supertest');
 const expect = require('chai').expect;
+const record = require('./record');
 
 describe.only('API test', function () {
+    const recorder = record('apiTestMock');
+    beforeEach(recorder.before);
+    afterEach(recorder.after);
     it('should call the get request and responds with json', function (done) {
         request('https://reqres.in')
             .get('/api/users/2')
@@ -25,7 +29,6 @@ describe.only('API test', function () {
             .expect('Content-Type', /json/)
             .expect(200)
             .end((err, response) => {
-                console.log('res=======', response.body);
                 if (err) {
                     console.log('error=====', err);
                 }
@@ -93,7 +96,6 @@ describe.only('API test', function () {
             .set('Accept', 'application/json')
             .expect(200)
             .end((err, response) => {
-                console.log('res=======', response.body);
                 if (err) {
                     console.log('error=====', err);
                 }
@@ -113,7 +115,6 @@ describe.only('API test', function () {
             .set('Accept', 'application/json')
             .expect(200)
             .end((err, response) => {
-                console.log('res=======', response.body);
                 if (err) {
                     console.log('error=====', err);
                 }
@@ -149,7 +150,6 @@ describe.only('API test', function () {
             .set('Accept', 'application/json')
             .expect(200)
             .end((err, response) => {
-                console.log('res=======', response.body);
                 if (err) {
                     console.log('error=====', err);
                 }
