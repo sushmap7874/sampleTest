@@ -11,10 +11,6 @@ class Login {
         await page.click(passwordSelector);
         await page.type(passwordSelector, password);
         await page.click(".VfPpkd-RLmnJb");
-        await page.waitForSelector('h1.x7WrMb');
-        const element = await page.$("h1.x7WrMb");
-        const heading = await page.evaluate(element => element.textContent, element);
-        expect(heading).to.eql("Welcome, Sushma Patel");
     }
 }
 

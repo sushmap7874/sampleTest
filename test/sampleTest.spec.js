@@ -14,6 +14,6 @@ describe('sample test', () => {
     });
 
     it('should have login the user', async () => {
-        await loginPage.login(page, "patel.sushma@tftus.com", "sush7874");
+        await loginPage.login(page, "userTest9901@gmail.com", "Test@123");
     });
 });
